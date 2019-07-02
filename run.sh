@@ -1,0 +1,1 @@
+java -jar ./purchaseAnalysisApp.jar ./input/test_1/order_products.csv ./input/test_1/products.csv ./output/test_1/report.csv
