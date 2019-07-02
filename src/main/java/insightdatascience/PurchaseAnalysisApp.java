@@ -11,9 +11,10 @@ import java.util.Map;
 import java.util.stream.Stream;
 
 /**
- * Insight data analysis challenge. Sample input :
- * //./input/test_1/order_products.csv ./input/test_1/products.csv
- * ./output/test_1/report.csv
+ * Insight data analysis challenge. 
+ * Sample input :
+ * ./input/test_1/order_products.csv ./input/test_1/products.csv ./output/test_1/report.csv
+ * 
  * 
  * @author dharmendra
  *
@@ -35,6 +36,13 @@ public class PurchaseAnalysisApp {
 
 	}
 
+	/**
+	 * Method to handle processing of data in files and create output result file.
+	 * 
+	 * @param orderFilePath
+	 * @param productFilePath
+	 * @param resultReportFilePath
+	 */
 	private static void startAnalysisProcess(String orderFilePath, String productFilePath,
 			String resultReportFilePath) {
 		Map<Integer, Integer> productDeptIdMap = readProductAndGetData(productFilePath);
@@ -90,8 +98,15 @@ public class PurchaseAnalysisApp {
 
 	}
 
-	// 3274616,87880,prior,28,4,15,3.0
-	// 2,33120,1,1
+	/**
+	 * Method to read Orders and get Data in Map. 
+	 * Sample data in file 2,33120,1,1
+	 * 
+	 * @param orderFilePath
+	 * @param deptTotalOrderMap
+	 * @param deptFirstOrderMap
+	 * @param deptProductIdMap
+	 */
 	private static void readOrderAndgetData(String orderFilePath, Map<Integer, Integer> deptTotalOrderMap,
 			Map<Integer, Integer> deptFirstOrderMap, Map<Integer, Integer> deptProductIdMap) {
 		try (Stream<String> lineStream = Files.lines(Paths.get(orderFilePath))) {
@@ -119,7 +134,13 @@ public class PurchaseAnalysisApp {
 
 	}
 
-	// 49644,Feta Crumbles,2,16
+	/**
+	 * Method to read product files and get Data in map. 
+	 * Sample data in file 49644,Feta Crumbles,2,16
+	 * 
+	 * @param productFilePath
+	 * @return
+	 */
 	private static Map<Integer, Integer> readProductAndGetData(String productFilePath) {
 		Map<Integer, Integer> deptProductIdMap = new HashMap<>();
 
